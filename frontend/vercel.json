@@ -13,29 +13,19 @@
     {
       "src": "/static/(.*)",
       "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
+        "cache-control": "s-maxage=31536000,immutable"
       }
     },
     {
-      "src": "/(.*).(js|css|json|ico|txt|png|jpg|jpeg|svg|woff|woff2|ttf|eot)$",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "src": "/(.*).(ico|json|js|css|txt|png|jpg|jpeg|svg|woff|woff2|ttf|eot)$",
+      "dest": "/$1.$2"
     },
     {
       "src": "/(.*)",
       "dest": "/index.html"
     }
   ],
-  "headers": [
-    {
-      "source": "/(.*).(js|css|json|ico|txt|png|jpg|jpeg|svg|woff|woff2|ttf|eot)$",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
-  ]
+  "env": {
+    "REACT_APP_BACKEND_URL": "https://cyberphantoms.onrender.com"
+  }
 }
